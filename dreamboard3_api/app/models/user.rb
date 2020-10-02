@@ -1,3 +1,4 @@
-class Api::V1::User < ApplicationRecord
+class User < ApplicationRecord
     has_secure_password
+    has_many :boards
 end
