@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
+import { connect } from 'react-redux'
+import MainContainer from './components/MainContainer.js'
 
 class App extends React.Component {
 
   render(){
     return (
-      "Hello I'm React"
+      <div className="App">
+        Hello, I'm React
+        <MainContainer />
+      </div>
+    
     );
   }
 }

@@ -3,9 +3,10 @@ class Api::V1::BoardsController < ApplicationController
 
   # GET /boards
   def index
-    @boards = Board.all
-
-    render json: @boards
+    # @boards = Board.all
+    @boards = user.boards
+    render json: BoardSerializer.new(@boards)
+    # render json: @boards
   end
 
   # GET /boards/1

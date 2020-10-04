@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_10_02_215317) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
-    t.integer "user_id"
+    t.string "author"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -22,14 +22,6 @@ ActiveRecord::Schema.define(version: 2020_10_02_215317) do
   create_table "entries", force: :cascade do |t|
     t.string "item"
     t.integer "board_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "username"
-    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
