@@ -24,6 +24,10 @@ const NewBoardForm = ({formData, board})=> {
                 onChange={handleChange}
                 value={""}
             /><br/>
+            <input 
+            type="submit"
+            value="Create Board"
+            />
         </form>
 
 )};

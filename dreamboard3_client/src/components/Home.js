@@ -4,19 +4,17 @@ import { Link } from 'react-router-dom'
 
 const Home = () => (
     <div>
-        <h1>Welcome to the Home page!</h1>
         <span>
-            <Link to="/MyBoards">My Boards</Link>
-            <Link to="/NewBoardForm">New Board</Link>
+            <Link to='/boards'>My Boards</Link>
+            <Link to='/boards/new'>New Board</Link>
         </span>
     </div>
 );
 
-
-
 export default Home;
 
-//    Chaya's: <Link key={r.id} to={`/recipes/${r.id}`}>{r.attributes.name}</Link>
+// //    Chaya's: <Link key={r.id} to={`/recipes/${r.id}`}>{r.attributes.name}</Link>  
 
-
-// <Route exact path="/" component={Home} />
+// // <Route exact path='/' component={Home}/>
+// {/* <Route exact path='/boards' component={MyBoards}/>
+// <Route exact path='/boards/new' component={NewBoardForm}/> */}

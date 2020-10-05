@@ -18,8 +18,8 @@ class App extends React.Component {
           Hello, I'm React
           
           <NavBar />
-          <Route exact path='/' component={Home} />
-          <Route exact path='/boards' component={MyBoards}/> 
+          <Route exact path='/' component={Home}/>
+          <Route exact path='/boards' component={MyBoards}/>
           <Route exact path='/boards/new' component={NewBoardForm}/>
 
       </Switch>
