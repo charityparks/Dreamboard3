@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const MyBoards = props => {
-    const boardCards = props.boards.length > 0 ? props.boards.map(b =>(<p key={b.id}><Link to={`/boards/${b.id}`}>{b.attributes.name}</Link></p>)) :
+    const boardCards = props.boards.length > 0 ? 
+        props.boards.map(b => (<p key={b.id}><Link to={`/boards/${b.id}`}>{b.attributes.title}</Link></p>)) :
     null 
-    
     return  boardCards
 }
 

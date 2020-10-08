@@ -8,16 +8,17 @@ const NavBar = () => {
         <div className="NavBar">
             
             <NavLink exact activeClassName="active" to="/home" >HomePage</NavLink><br></br>
-            <NavLink exact activeClassName="active" to="/boards" >My Boards</NavLink>
-            <br></br>
-            <NavLink exact activeClassName="active" to="/boards/new" >New Board</NavLink>
-            <br></br>
 
-            </div>
+            <NavLink exact activeClassName="active" to="/boards" >My Boards</NavLink><br></br>
+            
+            <NavLink exact activeClassName="active" to="/boards/new" >New Board</NavLink>
+            
+
+        </div>
         )
     }
 
-export default NavBar;
+export default connect(null, null) (NavBar)
 
 
 

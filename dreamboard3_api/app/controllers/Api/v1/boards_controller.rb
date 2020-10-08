@@ -3,7 +3,7 @@ class Api::V1::BoardsController < ApplicationController
 
   # GET /boards
   def index
-    # @boards = Board.all
+    @boards = Board.all
     # @boards = boards
     render json: BoardSerializer.new(@boards)
     # render json: @boards
@@ -17,11 +17,14 @@ class Api::V1::BoardsController < ApplicationController
   # POST /boards
   def create
     @board = Board.new(board_params)
-
     if @board.save
-      render json: @board, status: :created, location: @board
+      render json: BoardSerializer.new(@board)
+      # , status: created
     else
-      render json: @board.errors, status: :unprocessable_entity
+      error_resp = {
+        error: @board.errors.full_messages.to_sentence
+      }
+      render json: error_resp, status: :unprocessable_entity
     end
   end
 
@@ -47,6 +50,8 @@ class Api::V1::BoardsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def board_params
-      params.require(:board).permit(:title, :items)
+      # params.require(:board).permit(:title, :items)
+ 
+      params.permit(:title, :author)
     end
 end

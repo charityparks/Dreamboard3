@@ -1,6 +1,6 @@
 class BoardSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :entry
+  attributes :entries, :title, :author
   has_many :entries, serializer: EntrySerializer 
 
   # attribute :entries do |board|
@@ -9,5 +9,5 @@ class BoardSerializer
   #       item: ent.item
   #     }
   #     end
-    # end
+  #   end
 end

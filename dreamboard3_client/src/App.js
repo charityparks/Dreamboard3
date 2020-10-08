@@ -1,34 +1,45 @@
 import React from 'react';
 import './App.css';
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import NavBar from './components/NavBar.js'
 import MyBoards from './components/MyBoards.js'
-import NewBoardForm from './components/NewBoardForm.js'
-
+import BoardForm from './components/BoardForm.js'
+import BoardCard from './components/BoardCard.js'
 import Home from './components/Home.js'
-import MainContainer from './components/MainContainer'
+import MainContainer from './components/MainContainer.js'
 import { Route, Switch, withRouter } from 'react-router-dom'
+import {getMyBoards} from './actions/myBoards'
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.getMyBoards()
+  }
 
   render(){
     return (
       <div className="App">
-      <Switch>
-          Hello, I'm React
-          
-          <NavBar />
-          <Route exact path='/' component={Home}/>
-          <Route exact path='/boards' component={MyBoards}/>
-          <Route exact path='/boards/new' component={NewBoardForm}/>
+        <NavBar />
 
-      </Switch>
+        <Switch>     
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/boards' component={MyBoards}/>
+            <Route exact path='/boards/new' component={BoardForm}/>
+            <Route exact path='/boards:id' render={props => {
+              const board = this.props.boards.find(board => board.id === props.match.params.id)
+              return <BoardCard board={board}{...props}/>
+            }
+          }/>
+        </Switch>   
       </div>
     
     );
   }
 }
-// // app.js
-// <Route exact path="/" component={Home} />
+const mapStateToProps = state => ({
+   
+    boards: state.myBoards
 
-export default App;
+
+})
+
+export default connect(mapStateToProps, { getMyBoards })(App);
