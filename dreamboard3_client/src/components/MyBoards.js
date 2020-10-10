@@ -14,6 +14,7 @@ const mapStateToProps = state => {
         boards: state.myBoards    
     }
 }
+
 export default connect(mapStateToProps)(MyBoards)
 
 // keys are a way for React to identify what has changed or added/removed.

@@ -13,4 +13,7 @@ const BoardCard = ({ board }) => {
     )  
 }
 
-export default BoardCard;
+export default BoardCard
+
+
+
