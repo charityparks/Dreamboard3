@@ -1,5 +1,7 @@
 import React from 'react'
 import { updateBoardForm } from '../actions/boardForm'
+// import {setMyBoards} from '../reducers/myBoards'
+
 import { createBoard } from '../actions/myBoards'
 import { connect } from 'react-redux'
 
@@ -34,10 +36,16 @@ const BoardForm = ({ formData, updateBoardForm, createBoard, editMode }) => {
                 value={author}
             /><br/>
             <input 
-            type="submit"
-            value={editMode ? "Update Board" : "Create Board"}
-            />
-        </form>
+                type="text"
+                placeholder="item"
+                name="item"
+                onChange={handleChange}
+                value={item}
+            /><br/>
+            <input 
+                type="submit"
+                value={editMode ? "Update Board" : "Create Board"}
+            /></form>
 
 )};
 

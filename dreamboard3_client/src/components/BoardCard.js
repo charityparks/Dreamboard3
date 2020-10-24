@@ -6,7 +6,8 @@ const BoardCard = ({ board }) => {
         board ?
         <div>
             <h3>{board.attributes.title}</h3>
-            <p>{board.attributes.author}</p>
+            <p>Author:{board.attributes.author}</p>
+            <p>{board.entry.attributes.item}</p>
             <Link to={`/boards/${board.id}/edit`}>Edit this board</Link>
         </div> :
             <p>This BoardCard has no Board!</p>

@@ -18,6 +18,8 @@ export const resetBoardForm = () => {
     const boardFormData = {
       title: board.attributes.title,
       author: board.attributes.author,
+      // item: board.entries.attributes.item,
+      item: entry.attributes.item
     }
     return {
       type: "SET_FORM_DATA_FOR_EDIT",

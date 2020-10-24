@@ -1,6 +1,7 @@
 const initialState = {
    title: "",
-   author: "" 
+   author: "",
+   item: "",
 }
 export default (state=initialState, action) => {
     switch (action.type) {

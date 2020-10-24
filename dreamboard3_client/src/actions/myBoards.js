@@ -1,5 +1,5 @@
 import { resetBoardForm } from './boardForm'
-// import {setMyBoards} from '../reducers/myBoards'
+import {setMyBoards} from '../reducers/myBoards'
 
 export const setMyBoards = boards => {
   return {
@@ -7,34 +7,29 @@ export const setMyBoards = boards => {
     boards
   }
 }
-
 export const clearBoards = () => {
   return {
     type: "CLEAR_BOARDS"
   }
 }
-
 export const addBoard = board => {
   return {
     type: "ADD_BOARD",
     board
   }
 }
-
 export const deleteBoardSuccess = boardId => {
   return {
     type: "DELETE_BOARD",
     boardId
   }
 }
-
 export const updateBoardSuccess = board => {
   return {
     type: "UPDATE_BOARD",
     board
   }
 }
-
   export const getMyBoards = () => {
     return dispatch => {
       return fetch("http://localhost:3001/api/v1/boards", {
@@ -55,12 +50,12 @@ export const updateBoardSuccess = board => {
         .catch(console.log)
     }
   } 
-
   export const createBoard = (boardData, history) => {
     return dispatch => {
       const sendableBoardData = {
         title: boardData.title,
         author: boardData.author,
+        item: boardData.item,
       }
       return fetch("http://localhost:3001/api/v1/boards", {
         credentials: "include",
@@ -90,6 +85,7 @@ export const updateBoardSuccess = board => {
       const sendableBoardData = {
         title: boardData.title,
         author: boardData.author,
+        item: boardData.items,
       }
       return fetch(`http://localhost:3001/api/v1/boards/${boardData.boardId}`, {
         credentials: "include",
